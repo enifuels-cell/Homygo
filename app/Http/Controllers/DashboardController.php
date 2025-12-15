@@ -24,7 +24,7 @@ class DashboardController extends Controller
         }
 
         // For tenants, show dashboard with latest properties
-        $latestProperties = Property::where('status', 'available')
+        $latestProperties = Property::where('status', 'active')
             ->latest()
             ->take(8)
             ->with(['images', 'propertyType', 'barangay', 'user'])
