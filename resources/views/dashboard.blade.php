@@ -72,6 +72,38 @@
                         </div>
                     </a>
                 </div>
+
+                <!-- Latest Properties Section -->
+                @if(isset($latestProperties) && $latestProperties->count() > 0)
+                <div class="mt-8">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-800">Latest Properties</h2>
+                            <p class="text-sm text-gray-500 mt-1">Newly listed properties you might like</p>
+                        </div>
+                        <a href="{{ route('properties.index') }}" 
+                           class="text-emerald-600 hover:text-emerald-700 font-medium text-sm flex items-center">
+                            View All
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Horizontal Scrollable Container -->
+                    <div class="relative -mx-8 px-8">
+                        <div class="overflow-x-auto pb-4 scrollbar-hide">
+                            <div class="flex gap-6 w-max">
+                                @foreach($latestProperties as $property)
+                                    <div class="w-80 flex-shrink-0">
+                                        @include('components.property-card', ['property' => $property])
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
     </div>
