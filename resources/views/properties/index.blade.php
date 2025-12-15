@@ -153,21 +153,7 @@
                 </div>
 
                 <!-- Properties -->
-@if($properties->count() > 0)
-    <div class="properties-grid">
-        @foreach($properties as $property)
-            @include('components.property-card', ['property' => $property])
-        @endforeach
-    </div>
-
-    <!-- Pagination -->
-    <div class="mt-6 sm:mt-8">
-        {{ $properties->links() }}
-    </div>
-@else
-
-
-                    <!-- Properties -->
+                <div class="lg:w-3/4">
                     @if($properties->count() > 0)
                         <div class="properties-grid">
                             @foreach($properties as $property)
