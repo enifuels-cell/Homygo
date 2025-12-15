@@ -93,7 +93,7 @@
                     <!-- Horizontal Scrollable Container -->
                     <div class="relative -mx-8 px-8">
                         <div class="overflow-x-auto pb-4 scrollbar-hide">
-                            <div class="flex gap-6" style="width: max-content;">
+                            <div class="flex gap-6 w-max">
                                 @foreach($latestProperties as $property)
                                     <div class="w-80 flex-shrink-0">
                                         @include('components.property-card', ['property' => $property])
