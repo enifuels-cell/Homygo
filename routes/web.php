@@ -79,7 +79,13 @@ Route::middleware('auth')->group(function () {
         } elseif ($user->isLandlord()) {
             return redirect()->route('landlord.dashboard');
         }
-        return view('dashboard');
+        // For tenants, show dashboard with latest properties
+        $latestProperties = \App\Models\Property::where('status', 'available')
+            ->latest()
+            ->take(8)
+            ->with(['images', 'propertyType', 'barangay', 'user'])
+            ->get();
+        return view('dashboard', compact('latestProperties'));
     })->name('dashboard');
 });
 
